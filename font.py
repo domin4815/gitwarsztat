@@ -10,8 +10,8 @@ class FontLoader:
 		font.letters['G'] = r'''
   ___ 
  / __)
-( (_ \
- \___/
+( (_ \\
+ \\___/
 '''
 		font.letters['I'] = r'''
   __  
