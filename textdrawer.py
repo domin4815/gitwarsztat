@@ -3,17 +3,21 @@ class TextDrawer:
 		self.font = font
 
 	def draw(self, text):
-		for character in text:
-			print self.font.letters[character.upper()]
+        firstLetter = self.font.letters[text[0].upper()]
+        drawing = splitLetter(firstLetter)
 
-class FontLoader:
-    def loadFont(self, directory):
-        font = Font("fancy")
+        for character in text[1:]:
+             letter = splitLetter(self.font.letters[character.upper()])
+             drawing = appendLetter(drawing, letter)
 
-        for filename in os.listdir(directory):
-            font.letters[filename] = readFile(directory+filename)
+        for line in drawing:
+             print line
 
-        return font
+def splitLetter(letter):
+    return letter.split('\n')
 
-def readFile(filename):
-    return open(filename).read()
+def appendLetter(text, letter):
+    for i in xrange(len(text)):
+        text[i] += letter[i]
+
+    return text
